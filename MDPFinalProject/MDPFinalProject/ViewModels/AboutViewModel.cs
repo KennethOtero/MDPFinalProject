@@ -25,27 +25,22 @@ namespace MDPFinalProject.ViewModels
         }
 
         // House distance unit types
-        private string[] _Distances = 
+        public string[] Distances = 
         {
             "Centimeters",
-            "Decimeters",
             "Meters",
-            "Decameters",
-            "Hectometers",
-            "Kilometers"
+            "Kilometers",
+            "Feet",
+            "Yards",
+            "Miles"
         };
-        public string[] Distances 
-        {
-            get => _Distances;
-            set => _Distances = value;
-        }
 
-        public decimal getDistanceConversion(string number, string inputMeasure, string outputMeasure) 
+        public double getDistanceConversion(string number, string inputMeasure, string outputMeasure) 
         {
             try
             {
-                decimal userInput = Convert.ToDecimal(number);
-                decimal output = 0;
+                double userInput = Convert.ToDouble(number);
+                double output = 0;
 
                 if (inputMeasure == "Centimeters")
                 {
@@ -54,116 +49,44 @@ namespace MDPFinalProject.ViewModels
                         case "Centimeters":
                             output = userInput;
                             break;
-                        case "Decimeters":
-                            output = userInput / 10;
-                            break;
                         case "Meters":
                             output = userInput / 100;
-                            break;
-                        case "Decameters":
-                            output = userInput / 1000;
-                            break;
-                        case "Hectometers":
-                            output = userInput / 10000;
                             break;
                         case "Kilometers":
                             output = userInput / 100000;
                             break;
+                        case "Feet":
+                            output = userInput / 30.48;
+                            break;
+                        case "Yards":
+                            output = userInput / 91.44;
+                            break;
+                        case "Miles":
+                            output = userInput / 160900;
+                            break;
                     }
                 } 
-                else if (inputMeasure == "Decimeters") 
-                {
-                    switch (outputMeasure)
-                    {
-                        case "Centimeters":
-                            output = userInput * 10;
-                            break;
-                        case "Decimeters":
-                            output = userInput;
-                            break;
-                        case "Meters":
-                            output = userInput / 10;
-                            break;
-                        case "Decameters":
-                            output = userInput / 100;
-                            break;
-                        case "Hectometers":
-                            output = userInput / 1000;
-                            break;
-                        case "Kilometers":
-                            output = userInput / 10000;
-                            break;
-                    }
-                }
-                else if (inputMeasure == "Meters")
+                else if (inputMeasure == "Meters") 
                 {
                     switch (outputMeasure)
                     {
                         case "Centimeters":
                             output = userInput * 100;
                             break;
-                        case "Decimeters":
-                            output = userInput * 10;
-                            break;
                         case "Meters":
                             output = userInput;
-                            break;
-                        case "Decameters":
-                            output = userInput / 10;
-                            break;
-                        case "Hectometers":
-                            output = userInput / 100;
-                            break;
-                        case "Kilometers":
-                            output = userInput / 1000;
-                            break;
-                    }
-                }
-                else if (inputMeasure == "Decameters")
-                {
-                    switch (outputMeasure)
-                    {
-                        case "Centimeters":
-                            output = userInput * 1000;
-                            break;
-                        case "Decimeters":
-                            output = userInput * 100;
-                            break;
-                        case "Meters":
-                            output = userInput * 10;
-                            break;
-                        case "Decameters":
-                            output = userInput;
-                            break;
-                        case "Hectometers":
-                            output = userInput / 10;
                             break;
                         case "Kilometers":
                             output = userInput / 100;
                             break;
-                    }
-                }
-                else if (inputMeasure == "Hectometers")
-                {
-                    switch (outputMeasure)
-                    {
-                        case "Centimeters":
-                            output = userInput * 10000;
+                        case "Feet":
+                            output = userInput * 3.281;
                             break;
-                        case "Decimeters":
-                            output = userInput * 1000;
+                        case "Yards":
+                            output = userInput * 1.094;
                             break;
-                        case "Meters":
-                            output = userInput * 100;
-                            break;
-                        case "Decameters":
-                            output = userInput * 10;
-                            break;
-                        case "Hectometers":
-                            output = userInput;
-                            break;
-                        case "Kilometers":
-                            output = userInput / 10;
+                        case "Miles":
+                            output = userInput / 1609;
                             break;
                     }
                 }
@@ -174,19 +97,91 @@ namespace MDPFinalProject.ViewModels
                         case "Centimeters":
                             output = userInput * 100000;
                             break;
-                        case "Decimeters":
-                            output = userInput * 10000;
-                            break;
                         case "Meters":
                             output = userInput * 1000;
                             break;
-                        case "Decameters":
-                            output = userInput * 100;
+                        case "Kilometers":
+                            output = userInput;
                             break;
-                        case "Hectometers":
-                            output = userInput * 10;
+                        case "Feet":
+                            output = userInput * 3281;
+                            break;
+                        case "Yards":
+                            output = userInput * 1094;
+                            break;
+                        case "Miles":
+                            output = userInput / 1.609;
+                            break;
+                    }
+                }
+                else if (inputMeasure == "Feet")
+                {
+                    switch (outputMeasure)
+                    {
+                        case "Centimeters":
+                            output = userInput * 30.48;
+                            break;
+                        case "Meters":
+                            output = userInput / 3.281;
                             break;
                         case "Kilometers":
+                            output = userInput / 3281;
+                            break;
+                        case "Feet":
+                            output = userInput;
+                            break;
+                        case "Yards":
+                            output = userInput / 3;
+                            break;
+                        case "Miles":
+                            output = userInput / 5280;
+                            break;
+                    }
+                }
+                else if (inputMeasure == "Yards")
+                {
+                    switch (outputMeasure)
+                    {
+                        case "Centimeters":
+                            output = userInput * 91.44;
+                            break;
+                        case "Meters":
+                            output = userInput / 1.094;
+                            break;
+                        case "Kilometers":
+                            output = userInput / 1094;
+                            break;
+                        case "Feet":
+                            output = userInput * 3;
+                            break;
+                        case "Yards":
+                            output = userInput;
+                            break;
+                        case "Miles":
+                            output = userInput / 1760;
+                            break;
+                    }
+                }
+                else if (inputMeasure == "Miles")
+                {
+                    switch (outputMeasure)
+                    {
+                        case "Centimeters":
+                            output = userInput * 160900;
+                            break;
+                        case "Meters":
+                            output = userInput * 1609;
+                            break;
+                        case "Kilometers":
+                            output = userInput * 1.609;
+                            break;
+                        case "Feet":
+                            output = userInput * 5280;
+                            break;
+                        case "Yards":
+                            output = userInput * 1760;
+                            break;
+                        case "Miles":
                             output = userInput;
                             break;
                     }
