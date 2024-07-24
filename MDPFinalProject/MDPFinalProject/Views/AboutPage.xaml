@@ -27,7 +27,7 @@
 
         <!--This is a dropdown list to choose what unit types we are converting (distance, volume, ect). Once this has changed, the other 2 dropdowns will be enabled.-->
         <!--I bound the ItemSource to a collection that will need to be created. This will have a list of string values of the different types of units.-->
-        <Picker x:Name="UnitType" ItemsSource="{Binding UnitTypeCollection}" IsEnabled="True" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Title="Units to Convert" />
+        <Picker x:Name="UnitType" ItemsSource="{Binding UnitTypeCollection}" IsEnabled="True" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Title="Units to Convert" SelectedIndexChanged="PickerUnitTypes"/>
         
         <!--This is the entry row. User_Entry is the entry that allows the user to enter the ammount they want to convert. The ConverterOutput is a label that will display whatever the converted number is.-->
         <Entry x:Name="User_Entry" Placeholder="Enter..." Grid.Row="2" Grid.Column="0" />
@@ -36,7 +36,7 @@
 
         <!--I bound the ItemSource to a collection that will need to be created. These can share the same collection. These will house what units the user input, and what units the user wants to output.-->
         <Picker x:Name="InputUnits" ItemsSource="{Binding UnitCollection}" IsEnabled="False" Grid.Row="3" Grid.Column="0" Title="Select Unit"/>
-        <Picker x:Name="OutputUnits" ItemsSource="{Binding UnitCollection}" IsEnabled="False" Grid.Row="3" Grid.Column="2" Title="Select Unit"/>
+        <Picker x:Name="OutputUnits" ItemsSource="{Binding UnitCollection}" IsEnabled="False" Grid.Row="3" Grid.Column="2" Title="Select Unit" SelectedIndexChanged="OutputUnitChanged"/>
 
 
     </Grid>
