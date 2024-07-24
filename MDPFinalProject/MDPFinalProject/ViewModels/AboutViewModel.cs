@@ -77,7 +77,7 @@ namespace MDPFinalProject.ViewModels
                             output = userInput;
                             break;
                         case "Kilometers":
-                            output = userInput / 100;
+                            output = userInput / 1000;
                             break;
                         case "Feet":
                             output = userInput * 3.281;
