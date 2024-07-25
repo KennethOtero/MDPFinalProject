@@ -187,8 +187,105 @@ namespace MDPFinalProject.ViewModels
                     }
                 }
 
+
                 return output;
             } catch (Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+                return 0;
+            }
+        }
+        // House weight unit types
+        public string[] Weights =
+        {
+            "Kilograms",
+            "Pounds",
+            "Grams",
+            "Ounces"
+        };
+        public double getWeightConversion(string number, string inputMeasure, string outputMeasure)
+        {
+            try
+            {
+                double userInput = Convert.ToDouble(number);
+                double output = 0;
+
+                if (inputMeasure == "Kilograms")
+                {
+                    switch (outputMeasure)
+                    {
+                        case "Kilograms":
+                            output = userInput;
+                            break;
+                        case "Pounds":
+                            output = userInput * 2.20462;
+                            break;
+                        case "Grams":
+                            output = userInput * 1000;
+                            break;
+                        case "Ounces":
+                            output = userInput * 35.274;
+                            break;
+                    }
+                }
+                else if (inputMeasure == "Pounds")
+                {
+                    switch (outputMeasure)
+                    {
+                        case "Kilograms":
+                            output = userInput * 0.453592;
+                            break;
+                        case "Pounds":
+                            output = userInput;
+                            break;
+                        case "Grams":
+                            output = userInput * 453.592;
+                            break;
+                        case "Ounces":
+                            output = userInput * 16;
+                            break;
+                    }
+                }
+                else if (inputMeasure == "Grams")
+                {
+                    switch (outputMeasure)
+                    {
+                        case "Kilograms":
+                            output = userInput / 1000;
+                            break;
+                        case "Pounds":
+                            output = userInput * 0.00220462;
+                            break;
+                        case "Grams":
+                            output = userInput;
+                            break;
+                        case "Ounces":
+                            output = userInput * 0.035274;
+                            break;
+                    }
+                }
+                else if (inputMeasure == "Ounces")
+                {
+                    switch (outputMeasure)
+                    {
+                        case "Kilograms":
+                            output = userInput * 0.0283495;
+                            break;
+                        case "Pounds":
+                            output = userInput * 0.0625;
+                            break;
+                        case "Grams":
+                            output = userInput * 28.3495;
+                            break;
+                        case "Ounces":
+                            output = userInput;
+                            break;
+                    }
+                }
+
+                return output;
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 return 0;

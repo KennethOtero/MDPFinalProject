@@ -44,6 +44,9 @@ namespace MDPFinalProject.Views
                 case 2:
                     InputUnits.IsEnabled = true;
                     OutputUnits.IsEnabled = true;
+                    // Only include weight measurements
+                    InputUnits.ItemsSource = viewModel.Weights;
+                    OutputUnits.ItemsSource = viewModel.Weights;
                     break;
             }
         }
@@ -60,6 +63,7 @@ namespace MDPFinalProject.Views
                 case 1:
                     break;
                 case 2:
+                    ConverterOutput.Text = viewModel.getWeightConversion(User_Entry.Text, InputUnits.Items[InputUnits.SelectedIndex], OutputUnits.Items[OutputUnits.SelectedIndex]).ToString();
                     break;
             }
         }
