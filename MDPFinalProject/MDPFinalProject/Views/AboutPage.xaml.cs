@@ -38,6 +38,9 @@ namespace MDPFinalProject.Views
                 case 1:
                     InputUnits.IsEnabled = true;
                     OutputUnits.IsEnabled = true;
+                    // Only include volume measurements
+                    InputUnits.ItemsSource = viewModel.Volumes ;
+                    OutputUnits.ItemsSource = viewModel.Volumes;
                     break;
                 
                 // Weight units
@@ -61,8 +64,11 @@ namespace MDPFinalProject.Views
                     ConverterOutput.Text = viewModel.getDistanceConversion(User_Entry.Text, InputUnits.Items[InputUnits.SelectedIndex], OutputUnits.Items[OutputUnits.SelectedIndex]).ToString();
                     break;
                 case 1:
+                    // Volume Conversions
+                    ConverterOutput.Text = viewModel.getVolumeConversion(User_Entry.Text, InputUnits.Items[InputUnits.SelectedIndex], OutputUnits.Items[OutputUnits.SelectedIndex]).ToString();
                     break;
                 case 2:
+                    // Weight Conversions
                     ConverterOutput.Text = viewModel.getWeightConversion(User_Entry.Text, InputUnits.Items[InputUnits.SelectedIndex], OutputUnits.Items[OutputUnits.SelectedIndex]).ToString();
                     break;
             }

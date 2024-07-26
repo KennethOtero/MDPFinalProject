@@ -291,5 +291,100 @@ namespace MDPFinalProject.ViewModels
                 return 0;
             }
         }
+        public string[] Volumes =
+        {
+            "Cups",
+            "Pints",
+            "Quarts",
+            "Gallons"
+        };
+        public double getVolumeConversion(string number, string inputMeasure, string outputMeasure)
+        {
+            try
+            {
+                double userInput = Convert.ToDouble(number);
+                double output = 0;
+
+                if (inputMeasure == "Cups")
+                {
+                    switch (outputMeasure)
+                    {
+                        case "Cups":
+                            output = userInput;
+                            break;
+                        case "Pints":
+                            output = userInput / 2;
+                            break;
+                        case "Quarts":
+                            output = userInput / 4;
+                            break;
+                        case "Gallons":
+                            output = userInput / 16 ;
+                            break;
+                    }
+                }
+                else if (inputMeasure == "Pints")
+                {
+                    switch (outputMeasure)
+                    {
+                        case "Cups":
+                            output = userInput * 2; 
+                            break;
+                        case "Pints":
+                            output = userInput;
+                            break;
+                        case "Quarts":
+                            output = userInput / 2;
+                            break;
+                        case "Gallons":
+                            output = userInput / 8;
+                            break;
+                    }
+                }
+                else if (inputMeasure == "Quarts")
+                {
+                    switch (outputMeasure)
+                    {
+                        case "Cups":
+                            output = userInput * 4;
+                            break;
+                        case "Pints":
+                            output = userInput * 2;
+                            break;
+                        case "Quarts":
+                            output = userInput;
+                            break;
+                        case "Gallons":
+                            output = userInput / 4;
+                            break;
+                    }
+                }
+                else if (inputMeasure == "Gallons")
+                {
+                    switch (outputMeasure)
+                    {
+                        case "Cups":
+                            output = userInput * 16;
+                            break;
+                        case "Pints":
+                            output = userInput * 8;
+                            break;
+                        case "Quarts":
+                            output = userInput * 4;
+                            break;
+                        case "Gallons":
+                            output = userInput;
+                            break;
+                    }
+                }
+
+                return output;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return 0;
+            }
+        }
     }
 }
