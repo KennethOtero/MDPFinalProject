@@ -54,23 +54,27 @@ namespace MDPFinalProject.Views
             }
         }
 
-        private void OutputUnitChanged(Object sender, EventArgs e) 
+        private void UnitChanged(Object sender, EventArgs e) 
         {
-            // Display conversions
-            switch (UnitType.SelectedIndex)
+            //This checks that data is not null and prevents exceptions from occurring
+            if (UnitType.SelectedIndex != -1 && !string.IsNullOrEmpty(User_Entry.Text) && InputUnits.SelectedIndex != -1 && OutputUnits.SelectedIndex != -1)
             {
-                case 0:
-                    // Display distance conversions
-                    ConverterOutput.Text = viewModel.getDistanceConversion(User_Entry.Text, InputUnits.Items[InputUnits.SelectedIndex], OutputUnits.Items[OutputUnits.SelectedIndex]).ToString();
-                    break;
-                case 1:
-                    // Volume Conversions
-                    ConverterOutput.Text = viewModel.getVolumeConversion(User_Entry.Text, InputUnits.Items[InputUnits.SelectedIndex], OutputUnits.Items[OutputUnits.SelectedIndex]).ToString();
-                    break;
-                case 2:
-                    // Weight Conversions
-                    ConverterOutput.Text = viewModel.getWeightConversion(User_Entry.Text, InputUnits.Items[InputUnits.SelectedIndex], OutputUnits.Items[OutputUnits.SelectedIndex]).ToString();
-                    break;
+                // Display conversions
+                switch (UnitType.SelectedIndex)
+                {
+                    case 0:
+                        // Display distance conversions
+                        ConverterOutput.Text = viewModel.getDistanceConversion(User_Entry.Text, InputUnits.Items[InputUnits.SelectedIndex], OutputUnits.Items[OutputUnits.SelectedIndex]).ToString();
+                        break;
+                    case 1:
+                        // Volume Conversions
+                        ConverterOutput.Text = viewModel.getVolumeConversion(User_Entry.Text, InputUnits.Items[InputUnits.SelectedIndex], OutputUnits.Items[OutputUnits.SelectedIndex]).ToString();
+                        break;
+                    case 2:
+                        // Weight Conversions
+                        ConverterOutput.Text = viewModel.getWeightConversion(User_Entry.Text, InputUnits.Items[InputUnits.SelectedIndex], OutputUnits.Items[OutputUnits.SelectedIndex]).ToString();
+                        break;
+                }
             }
         }
     }

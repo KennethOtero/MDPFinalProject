@@ -35,8 +35,8 @@
         <Label x:Name="ConverterOutput" Text="0" Grid.Row="2" Grid.Column="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
 
         <!--I bound the ItemSource to a collection that will need to be created. These can share the same collection. These will house what units the user input, and what units the user wants to output.-->
-        <Picker x:Name="InputUnits" ItemsSource="{Binding UnitCollection}" IsEnabled="False" Grid.Row="3" Grid.Column="0" Title="Select Unit"/>
-        <Picker x:Name="OutputUnits" ItemsSource="{Binding UnitCollection}" IsEnabled="False" Grid.Row="3" Grid.Column="2" Title="Select Unit" SelectedIndexChanged="OutputUnitChanged"/>
+        <Picker x:Name="InputUnits" ItemsSource="{Binding UnitCollection}" IsEnabled="False" Grid.Row="3" Grid.Column="0" Title="Select Unit" SelectedIndexChanged="UnitChanged"/>
+        <Picker x:Name="OutputUnits" ItemsSource="{Binding UnitCollection}" IsEnabled="False" Grid.Row="3" Grid.Column="2" Title="Select Unit" SelectedIndexChanged="UnitChanged"/>
 
 
     </Grid>
